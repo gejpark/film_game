@@ -7,6 +7,9 @@
 //http://www.acroche2.com/midi_m.html
 //https://www.midis101.com/search/ENNIO+MORRICONE
 
+//These five components can be added: physics systems, cameras, particle effects, text objects, the animation manager
+//Requirement for the game: Physics for hit detection, camera of dynamic scene switch, particle effects for blasting, text objects (self-expalantory), and animation manager (just adding animations to the game.)
+
 
 //Overlap Rect reference:
 //Reference: https://newdocs.phaser.io/docs/3.55.2/focus/Phaser.Physics.Arcade.Components.OverlapRect
