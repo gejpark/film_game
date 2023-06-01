@@ -34,24 +34,26 @@ class menu extends Phaser.Scene {
             repeat: -1,
         })
         this.cursor.anims.play('cursor_animation');
-        KEY_ESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESCAPE);
+        // KEY_ESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESCAPE);
+        // KEY_SPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        KEY_P = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
         // document.body.style.cursor = 'none';
         this.showCursor = true;
     }
     update() {
-        if(KEY_ESC.isDown) {
-            if(this.showCursor == false){
-                this.showCursor = true;
-            } else {
+        if (Phaser.Input.Keyboard.JustDown(KEY_P)) { //turn cursor on or off (visually)
+            if(this.showCursor == true) {
                 this.showCursor = false;
+            } else {
+                this.showCursor = true;
             }
         }
-        if(this.showCursor = true) {
+        if(this.showCursor == true) { //turn cursor on or off (visually)
             document.body.style.cursor = '';
         } else {
             document.body.style.cursor = 'none';
         }
-        console.log(this.showCursor);
+        // console.log(this.showCursor);
 
         MOUSE_POINTER = this.input.activePointer;
 
