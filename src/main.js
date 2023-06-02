@@ -6,6 +6,8 @@
 //https://bitmidi.com/once-upon-a-time-in-the-west-2-mid
 //http://www.acroche2.com/midi_m.html
 //https://www.midis101.com/search/ENNIO+MORRICONE
+//REVOLVER UI (original, modified for the game):
+//https://opengameart.org/content/revolver-ammo-icon
 
 //These five components can be added: physics systems, cameras, particle effects, text objects, the animation manager
 //Requirement for the game: Physics for hit detection, camera of dynamic scene switch, particle effects for blasting, text objects (self-expalantory), and animation manager (just adding animations to the game.)
