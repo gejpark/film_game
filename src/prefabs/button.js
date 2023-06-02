@@ -17,6 +17,9 @@ class Button extends Phaser.GameObjects.Text {
     }
 
     moveToNextScene() {
+        if (this.scene.playMusic != null) { //stop music before moving unto next scene
+            this.scene.playMusic.stop();
+        }
         if (this.active == true) {
             this.scene.scene.start(this.scene_name);
         }
