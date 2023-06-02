@@ -8,6 +8,9 @@ class menu extends Phaser.Scene {
         this.load.audio('sfx_gunshot2', './assets/sounds/gunshot2.wav');
         this.load.audio('sfx_gunshot3', './assets/sounds/gunshot3.wav');
         this.load.audio('sfx_reload', './assets/sounds/reload.wav');
+        this.load.audio('harmonica_theme', './assets/sounds/Luomo-Del-Armonica-1.WAV');
+        this.load.audio('movie_theme', './assets/sounds/Ennio_Morricone__West.WAV');
+        this.load.audio('bye_cheyenne', './assets/sounds/Ennio_Morricone__Bye_Cheyenne.WAV');
         //trailer background image
         this.trailer_images = [];
         this.trailer_base_image = this.load.image('trailer_base_image', './assets/trailer_images/1.png');
@@ -28,6 +31,13 @@ class menu extends Phaser.Scene {
         this.load.image('cursor_base', './assets/cursor1.png');
     }
     create() {        
+        //add music
+        if (this.playMusic == null) {
+            this.playMusic = this.sound.add('movie_theme');
+            this.playMusic.setVolume(0.5);
+            this.playMusic.setLoop(true);
+        }
+        this.playMusic.play(); //play the music
 
         //create menu background
         this.anims.create({ //create animation
