@@ -38,6 +38,12 @@ class UI extends Phaser.Physics.Arcade.Sprite {
 
         //revolver sprite
         this.scene.revolver_ui = this.scene.add.sprite(32, game.config.height-32, 'revolver_ui_base_image');
+    
+        //add sound effects
+        this.sfx_gunshot1 = this.scene.sound.add('sfx_gunshot1');
+        this.sfx_gunshot2 = this.scene.sound.add('sfx_gunshot2');
+        this.sfx_gunshot3 = this.scene.sound.add('sfx_gunshot3');
+        this.sfx_reload = this.scene.sound.add('sfx_reload');
     }
 
     update() {
@@ -56,9 +62,12 @@ class UI extends Phaser.Physics.Arcade.Sprite {
         this.scene.revolver_ui.setTexture(`revolver_ui${this.shot_count}`);
         
         if (MOUSE_POINTER.leftButtonDown() && this.can_fire == true) {   //left key down
-            this.setScale(0.75);
+            this.setScale(0.5);
             if (this.shot_count > 1) {
                 this.shot_count -= 1;
+                // this.scene.sound.play('sfx_gunshot1');
+                this.sfx_gunshot1.setVolume(this.shot_count/2);
+                this.sfx_gunshot1.play();
                 this.final_rotation += 60;
                 this.rotation_lerp = 0;
             }
@@ -73,6 +82,8 @@ class UI extends Phaser.Physics.Arcade.Sprite {
         if (MOUSE_POINTER.rightButtonDown() && this.can_reload == true) {
             if (this.shot_count < 7) {
                 this.shot_count += 1;
+                // this.sfx_reload.setVolume((7-this.shot_count));
+                this.sfx_reload.play();
                 this.final_rotation -= 60;
                 this.rotation_lerp = 0;
             }

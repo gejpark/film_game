@@ -2,7 +2,12 @@ class menu extends Phaser.Scene {
     constructor() {
         super('menu');
     }
-    preload() {    
+    preload() {
+        //sounds
+        this.load.audio('sfx_gunshot1', './assets/sounds/gunshot1.wav');
+        this.load.audio('sfx_gunshot2', './assets/sounds/gunshot2.wav');
+        this.load.audio('sfx_gunshot3', './assets/sounds/gunshot3.wav');
+        this.load.audio('sfx_reload', './assets/sounds/reload.wav');
         //trailer background image
         this.trailer_images = [];
         this.trailer_base_image = this.load.image('trailer_base_image', './assets/trailer_images/1.png');
