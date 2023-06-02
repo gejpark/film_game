@@ -18,6 +18,10 @@
 //Reference: https://newdocs.phaser.io/docs/3.55.2/focus/Phaser.Physics.Arcade.Components.OverlapRect
 //Example: https://labs.phaser.io/view.html?src=src/physics/arcade/get%20bodies%20within%20rectangle.js
 
+//Adding new fonts to Phaser: https://webtips.dev/webtips/phaser/custom-fonts-in-phaser3
+
+//Custom font Smokum from: https://fonts.google.com/specimen/Smokum
+
 let config = {
     type: Phaser.AUTO, //Phaser.CANVAS => webgl isn't pixel perfect when rendering for some reason
     width: 640,
@@ -36,6 +40,9 @@ let config = {
                 y: 0
             }
         }
+    },
+    render: { //https://www.html5gamedevs.com/topic/36343-disable-antialias-in-phaser-3/
+        pixelArt: true, 
     },
     fps: { forceSetTimeOut: true, target: 60 },
 }

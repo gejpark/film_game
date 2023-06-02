@@ -41,8 +41,7 @@ class menu extends Phaser.Scene {
         this.menu_background.anims.play('trailer', true);
         this.cameras.main.setBackgroundColor(0xbababa); //set background color for main menu
         // this.input.mouse.disableContextMenu(); //disable context menu popup on left click
-        
-        this.UI = new UI(this,300,300, 'cursor_base');
+    
 
         // this.rect = this.add.rectangle(400, 300, 32, 32); //.setStrokeStyle(2, 0xffff00)
         // this.cursor = this.add.sprite(0, 0, 'cursor_base');
@@ -53,13 +52,65 @@ class menu extends Phaser.Scene {
         //     repeat: -1,
         // })
         // this.cursor.anims.play('cursor_animation');
-        KEY_P = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
-        this.showCursor = true;
+        // KEY_P = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
+        // this.showCursor = true;
         
         
         // menu text configuration
+        let titleConfig = {
+            fontFamily: 'Smokum',
+            fontSize: '24px',
+            // backgroundColor: '#816271',
+            color: '#FFFFFF',
+            align: 'right',
+            // padding: {
+            //     top: 5,
+            //     bottom: 5,
+            // },
+            fixedWidth: 0
+        }
+        this.add.text(game.config.width/2, game.config.height/15, 'ONCE UPON A TIME IN THE WEST: THE GAME', titleConfig).setOrigin(0.5);
+        
         let menuConfig = {
-            fontFamily: 'Trebuchet MS',
+            fontFamily: 'Smokum',
+            fontSize: '14px',
+            backgroundColor: '#816271',
+            color: '#FFFFFF',
+            align: 'right',
+            // padding: {
+            //     top: 5,
+            //     bottom: 5,
+            // },
+            fixedWidth: 0
+        }
+        //scene buttons
+        this.scene1 = new Button(this, (game.config.width/5) * 4.5, game.config.height/2 - 32 + 64, "SCENE 1", menuConfig);
+        this.scene1.addSceneTransition('scene1');
+        this.scene2 = new Button(this, (game.config.width/5) * 4.5, game.config.height/2 - 32 + 64 * 2, "SCENE 2", menuConfig);
+        // this.scene2.addSceneTransition('scene2');
+        this.scene3 = new Button(this, (game.config.width/5) * 4.5, game.config.height/2 - 32 + 64 * 3, "SCENE 3", menuConfig);
+        // this.scene3.addSceneTransition('scene3');
+
+        // this.scene1.setActive(false);
+        // this.scene1.setVisible(false);
+        this.scene1.enableButton(false);
+        this.scene2.enableButton(false);
+        this.scene3.enableButton(false);
+
+        //Add play button
+        this.playButton = new Button(this, 64 * 2, game.config.height - 32, "PLAY", menuConfig);
+        // this.playButton.addSceneTransition('');
+
+        //Add Credits
+        this.credits = new Button(this, 64 * 4, game.config.height - 32, "CREDITS", menuConfig);
+        // this.credits.addSceneTransition('');
+
+        //Add TUTORIAL
+        // this.tutorial = new Button(this, 64 * 6, game.config.height - 32, "TUTORIAL", menuConfig);
+        // this.tutorial.addSceneTransition('');
+        
+        let menuConfig1 = {
+            fontFamily: 'Smokum',
             fontSize: '14px',
             // backgroundColor: '#816271',
             color: '#FFFFFF',
@@ -70,12 +121,25 @@ class menu extends Phaser.Scene {
             // },
             fixedWidth: 0
         }
-        this.add.text(game.config.width/2, game.config.height/15, 'ONCE UPON A TIME IN THE WEST: THE GAME', menuConfig).setOrigin(0.5);
-        
-        
+        this.explain = new Button(this, 64 * 8, game.config.height - 32, "RIGHT CLICK TO FIRE \n LEFT CLICK TO RELOAD", menuConfig1);
+
+        //create UI
+        this.UI = new UI(this,300,300, 'cursor_base');
         this.UI.create();
     }
     update() {
+        if (this.playButton.interacted) {
+            this.scene1.enableButton(true);
+            this.scene2.enableButton(true);
+            this.scene3.enableButton(true);
+        } else {
+            this.scene1.enableButton(false);
+            this.scene2.enableButton(false);
+            this.scene3.enableButton(false);
+        }
+
         this.UI.update();
+
+        this.scene1.update();
     }
 }

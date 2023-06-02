@@ -64,6 +64,16 @@ class UI extends Phaser.Physics.Arcade.Sprite {
         if (MOUSE_POINTER.leftButtonDown() && this.can_fire == true) {   //left key down
             this.setScale(0.5);
             if (this.shot_count > 1) {
+                bodiesInRect.forEach(element => {
+                    // console.log(element.gameObject.constructor.name);
+                    if (element.gameObject.constructor.name == "Button") {
+                        if (element.gameObject.nextScene) {
+                            element.gameObject.moveToNextScene();
+                        } else {
+                            element.gameObject.interaction();
+                        }
+                    }
+                });
                 this.shot_count -= 1;
                 // this.scene.sound.play('sfx_gunshot1');
                 this.sfx_gunshot1.setVolume(this.shot_count/2);
