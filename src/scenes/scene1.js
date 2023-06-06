@@ -67,5 +67,15 @@ class scene1 extends Phaser.Scene {
                 this.enemy3.update();
             }
         })
+
+        if (this.enemy1.active && this.enemy1.fired) {
+            this.scene.start('gameover');
+        }
+        if (this.enemy2.active && this.enemy2.fired) {
+            this.scene.start('gameover');
+        }
+        if (this.enemy3.active && this.enemy3.fired) {
+            this.scene.start('gameover');
+        }
     }
 }
