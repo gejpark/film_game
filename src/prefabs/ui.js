@@ -33,6 +33,9 @@ class UI extends Phaser.Physics.Arcade.Sprite {
         this.rotation_multiplier = 1;
         this.rotation_lerp = 0;
 
+        //check if allowed to hit enemies
+        this.safety = true;
+
         //rect for detection
         this.rect = this.scene.add.rectangle(this.x, this.y, this.width, this.height).setStrokeStyle(2, 0xffff00); //.setStrokeStyle(2, 0xffff00)
 
@@ -72,6 +75,9 @@ class UI extends Phaser.Physics.Arcade.Sprite {
                         } else {
                             element.gameObject.interaction();
                         }
+                    }
+                    if (this.safety == false && element.gameObject.constructor.name == "enemy1") {
+                        element.gameObject.destroy();
                     }
                 });
                 this.shot_count -= 1;

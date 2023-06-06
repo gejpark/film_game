@@ -29,6 +29,17 @@ class menu extends Phaser.Scene {
         //cursor UI
         this.load.spritesheet('cursor','./assets/cursor.png', {frameWidth: 32, frameHeight: 32, startFrame: 0, endFrame: 3});
         this.load.image('cursor_base', './assets/cursor1.png');
+
+        //load enemy images
+        //ENEMY 1
+        this.load.image('enemy1_base', './assets/scene1_images/gameplay/enemy1_base.png');
+        this.load.spritesheet('enemy1_shooting', './assets/scene1_images/gameplay/enemy1-Sheet.png', {frameWidth: 128, frameHeight: 128, startFrame: 0, endFrame: 10});
+        //ENEMY 2
+        this.load.image('enemy2_base', './assets/scene1_images/gameplay/enemy2_base.png');
+        this.load.spritesheet('enemy2_shooting', './assets/scene1_images/gameplay/enemy2-Sheet.png', {frameWidth: 128, frameHeight: 128, startFrame: 0, endFrame: 9});
+        //ENEMY 3
+        this.load.image('enemy3_base', './assets/scene1_images/gameplay/enemy3_base.png');
+        this.load.spritesheet('enemy3_shooting', './assets/scene1_images/gameplay/enemy3-Sheet.png', {frameWidth: 128, frameHeight: 128, startFrame: 0, endFrame: 12});
     }
     create() {        
         //add music
