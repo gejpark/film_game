@@ -49,7 +49,7 @@ class enemy1 extends Phaser.Physics.Arcade.Sprite {
             this.do_animation = true;
         }
         this.on('animationcomplete', () => {
-            console.log("ANIMATION DONE");
+            // console.log("ANIMATION DONE");
             this.sfx_gunshot2.setVolume(3);
             this.sfx_gunshot3.setVolume(3);
             if(Math.random() > 0.5) {
