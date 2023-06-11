@@ -142,7 +142,7 @@ class menu extends Phaser.Scene {
             // },
             fixedWidth: 0
         }
-        this.explain = new Button(this, 64 * 8, game.config.height - 32, "RIGHT CLICK TO FIRE \n LEFT CLICK TO RELOAD", menuConfig1);
+        this.explain = new Button(this, 64 * 8, game.config.height - 32, "LEFT CLICK TO FIRE \n RIGHT CLICK TO RELOAD", menuConfig1);
 
         //create UI
         this.UI = new UI(this,300,300, 'cursor_base');
