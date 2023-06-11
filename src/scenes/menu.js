@@ -108,7 +108,7 @@ class menu extends Phaser.Scene {
         this.scene1 = new Button(this, (game.config.width/5) * 4.5, game.config.height/2 - 32 + 64, "SCENE 1", menuConfig);
         this.scene1.addSceneTransition('scene1_start');
         this.scene2 = new Button(this, (game.config.width/5) * 4.5, game.config.height/2 - 32 + 64 * 2, "SCENE 2", menuConfig);
-        // this.scene2.addSceneTransition('scene2');
+        this.scene2.addSceneTransition('scene2');
         this.scene3 = new Button(this, (game.config.width/5) * 4.5, game.config.height/2 - 32 + 64 * 3, "SCENE 3", menuConfig);
         // this.scene3.addSceneTransition('scene3');
 
