@@ -40,7 +40,7 @@ class credits extends Phaser.Scene {
         }
         this.add.text(game.config.width/2, game.config.height/15 + 32, 'For bit-crushing movie stills - https://giventofly.github.io/pixelit/', creditConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/15 + 32 * 2, 'Used the color palette "SEPIA 6" - https://lospec.com/palette-list/sepia6', creditConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/15 + 32 * 3, 'Crunched the sound using - https://meme.institute/gxscc/', creditConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/15 + 32 * 3, 'Crunched the sound using GXSCC - https://meme.institute/gxscc/', creditConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/15 + 32 * 4, 'Original Midis From: https://www.midis101.com/search/ENNIO+MORRICONE', creditConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/15 + 32 * 5, 'Original Midis From: http://www.acroche2.com/midi_m.html', creditConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/15 + 32 * 6, 'REVOLVER UI (original, modified for the game): https://opengameart.org/content/revolver-ammo-icon', creditConfig).setOrigin(0.5);
