@@ -8,7 +8,7 @@ class scene2 extends Phaser.Scene {
     create() {
 
         //set background color
-        this.cameras.main.setBackgroundColor(0xbababa); //set background color for main menu
+        this.cameras.main.setBackgroundColor(0xb47d58); //set background color for main menu
         
         //add background:
         // this.scene2_background = this.add.sprite(0, 0, 'scene1_background').setOrigin(0);
