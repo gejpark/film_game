@@ -37,7 +37,7 @@ class UI extends Phaser.Physics.Arcade.Sprite {
         this.safety = true;
 
         //rect for detection
-        this.rect = this.scene.add.rectangle(this.x, this.y, this.width, this.height).setStrokeStyle(2, 0xffff00); //.setStrokeStyle(2, 0xffff00)
+        this.rect = this.scene.add.rectangle(this.x, this.y, this.width, this.height);//.setStrokeStyle(2, 0xffff00); //.setStrokeStyle(2, 0xffff00)
 
         //revolver sprite
         this.scene.revolver_ui = this.scene.add.sprite(32, game.config.height-32, 'revolver_ui_base_image');
