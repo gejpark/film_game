@@ -1,3 +1,11 @@
+//LIST MAJOR PHASER COMPONENTS USED:
+//- The game uses the Physics system for hit-detection between the mouse cursor and enemies
+//- Text objects used frequently throughout the game
+//- Major use of animation system, re-creating scenes from the movie
+//- Timers are used to delay enemies in scene 1, until the "READY" message disappear, similarly for scene 2.
+//- Camera is used to set background on scene 2
+//- Phaser audio system is consistently used. Not only for music, but also for sound effects. For example, the less ammo you have in your gun, the quieter the shooting sound effect becomes.
+
 
 //These five components can be added: physics systems, cameras, particle effects, text objects, the animation manager
 //Requirement for the game: Physics for hit detection, camera of dynamic scene switch, particle effects for blasting, text objects (self-expalantory), and animation manager (just adding animations to the game.)
