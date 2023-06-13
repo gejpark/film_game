@@ -47,6 +47,7 @@ let config = {
     fps: { forceSetTimeOut: true, target: 60 },
 }
 let game = new Phaser.Game(config);
+let menu_preload = false;
 // reserve keyboard vars
 let KEY_SPACE, KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN, KEY_Z, MOUSE_POINTER, KEY_ESC, KEY_P;
 let SCORES = [];

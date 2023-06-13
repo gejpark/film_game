@@ -12,25 +12,34 @@ class scene1_start extends Phaser.Scene {
         }
     }
     create() {
-        //create menu background
-        this.anims.create({ //create animation
-            key: 'scene1_start_background',
-            frames: this.scene1_images,
-            frameRate: 2,
-            repeat: 0,
-        });
+        //create scene1 intro animation
+        if(!this.anims.exists('scene1_start_background')) {
+            this.anims.create({ //create animation
+                key: 'scene1_start_background',
+                frames: this.scene1_images,
+                frameRate: 2,
+                repeat: 0,
+            });
+        }
 
         this.scene1_start_background = this.add.sprite(640/2,480/2,'scene1_base_image').setOrigin(0.5);
 
         this.do_animation = false;
+
+        //create UI
+        this.UI = new UI(this,300,300, 'cursor_base');
+        this.UI.create();
     }
 
     update() {
+        this.UI.update(); //update the ui
+
         if(this.do_animation == false) {
             this.scene1_start_background.anims.play('scene1_start_background', true);
             this.do_animation = true;
         }
         this.scene1_start_background.on('animationcomplete', () => {
+            game.sound.stopAll();
             this.scene.start('scene1');
         })
     }

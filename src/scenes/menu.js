@@ -40,8 +40,9 @@ class menu extends Phaser.Scene {
         //ENEMY 3
         this.load.image('enemy3_base', './assets/scene1_images/gameplay/enemy3_base.png');
         this.load.spritesheet('enemy3_shooting', './assets/scene1_images/gameplay/enemy3-Sheet.png', {frameWidth: 128, frameHeight: 128, startFrame: 0, endFrame: 12});
+        
     }
-    create() {        
+    create() {   
         //add music
         if (this.playMusic == null) {
             this.playMusic = this.sound.add('movie_theme');
@@ -51,12 +52,14 @@ class menu extends Phaser.Scene {
         this.playMusic.play(); //play the music
 
         //create menu background
-        this.anims.create({ //create animation
-            key: 'trailer',
-            frames: this.trailer_images,
-            frameRate: 2,
-            repeat: -1,
-        });
+        if(!this.anims.exists('trailer')) {
+            this.anims.create({ //create animation
+                key: 'trailer',
+                frames: this.trailer_images,
+                frameRate: 2,
+                repeat: -1,
+            });
+        }
 
         this.menu_background = this.add.sprite(640/2,480/2,'trailer_base_image').setOrigin(0.5);
         this.menu_background.anims.play('trailer', true);
@@ -106,7 +109,7 @@ class menu extends Phaser.Scene {
         }
         //scene buttons
         this.scene1 = new Button(this, (game.config.width/5) * 4.5, game.config.height/2 - 32 + 64, "SCENE 1", menuConfig);
-        this.scene1.addSceneTransition('scene1_start');
+        this.scene1.addSceneTransition('scene1');
         this.scene2 = new Button(this, (game.config.width/5) * 4.5, game.config.height/2 - 32 + 64 * 2, "SCENE 2", menuConfig);
         this.scene2.addSceneTransition('scene2');
         this.scene3 = new Button(this, (game.config.width/5) * 4.5, game.config.height/2 - 32 + 64 * 3, "SCENE 3", menuConfig);
@@ -147,6 +150,7 @@ class menu extends Phaser.Scene {
         //create UI
         this.UI = new UI(this,300,300, 'cursor_base');
         this.UI.create();
+
     }
     update() {
         if (this.playButton.interacted) {
