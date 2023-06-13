@@ -46,7 +46,7 @@ class menu extends Phaser.Scene {
         //add music
         if (this.playMusic == null) {
             this.playMusic = this.sound.add('movie_theme');
-            this.playMusic.setVolume(0.5);
+            this.playMusic.setVolume(1.0);
             this.playMusic.setLoop(true);
         }
         this.playMusic.play(); //play the music
