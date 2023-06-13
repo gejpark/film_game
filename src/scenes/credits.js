@@ -46,6 +46,8 @@ class credits extends Phaser.Scene {
         this.add.text(game.config.width/2, game.config.height/15 + 32 * 6, 'REVOLVER UI (original, modified for the game): https://opengameart.org/content/revolver-ammo-icon', creditConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/15 + 32 * 7, 'Sound Effects: https://sfxr.me/', creditConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/15 + 32 * 8, 'Custom font Smokum from: https://fonts.google.com/specimen/Smokum', creditConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/15 + 32 * 9, 'Sprites edited with ASEPRITE', creditConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/15 + 32 * 10, 'Audio editied with AUDACITY', creditConfig).setOrigin(0.5);
 
         let menuConfig = {
             fontFamily: 'Smokum',

@@ -1,11 +1,16 @@
 //LIST MAJOR PHASER COMPONENTS USED:
-//- The game uses the Physics system for hit-detection between the mouse cursor and enemies
-//- Text objects used frequently throughout the game
-//- Major use of animation system, re-creating scenes from the movie
-//- Timers are used to delay enemies in scene 1, until the "READY" message disappear, similarly for scene 2.
-//- Camera is used to set background on scene 2
-//- Phaser audio system is consistently used. Not only for music, but also for sound effects. For example, the less ammo you have in your gun, the quieter the shooting sound effect becomes.
+//+1 The game uses the Physics system for hit-detection between the mouse cursor and enemies
+//+1 Text objects used frequently throughout the game
+//+1 Major use of animation system, re-creating scenes from the movie
+//+1 Timers are used to delay enemies in scene 1, until the "READY" message disappear, similarly for scene 2.
+//+1 Camera is used to set background on scene 2
+//+1 Phaser audio system is consistently used. Not only for music, but also for sound effects. For example, the less ammo you have in your gun, the quieter the shooting sound effect becomes.
+//= 6 components.
 
+//EXTRA FEATURES:
+//Custom "Western"-ish font implemented
+//MIDIs converted to Famicom-like audio using GXSCC to maintain game's retro aethestic
+//All images bit-crunched using Pixelit, again for the retro aethestic
 
 //These five components can be added: physics systems, cameras, particle effects, text objects, the animation manager
 //Requirement for the game: Physics for hit detection, camera of dynamic scene switch, particle effects for blasting, text objects (self-expalantory), and animation manager (just adding animations to the game.)
@@ -20,7 +25,8 @@
 //REVOLVER UI (original, modified for the game): https://opengameart.org/content/revolver-ammo-icon
 //Sound Effects: https://sfxr.me/
 //Custom font Smokum from: https://fonts.google.com/specimen/Smokum
-
+//Sprites edited with ASEPRITE
+//Audio editied with AUDACITY
 
 let config = {
     type: Phaser.AUTO, //Phaser.CANVAS => webgl isn't pixel perfect when rendering for some reason
