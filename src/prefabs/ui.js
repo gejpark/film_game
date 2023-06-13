@@ -86,7 +86,7 @@ class UI extends Phaser.Physics.Arcade.Sprite {
                 });
                 this.shot_count -= 1;
                 // this.scene.sound.play('sfx_gunshot1');
-                // this.sfx_gunshot1.setVolume(this.shot_count/2);
+                this.sfx_gunshot1.setVolume(this.shot_count/2);
                 // this.sfx_gunshot1.stop();
                 
                 // this.sfx_gunshot1.play();
