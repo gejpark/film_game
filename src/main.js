@@ -1,32 +1,24 @@
-//For cutscenes convert movie stills using https://giventofly.github.io/pixelit/
-//Use the color palette "SEPIA 6" https://lospec.com/palette-list/sepia6
-//Crunch the sound using https://meme.institute/gxscc/
-//Original Midis From:
-//https://bitmidi.com/once-upon-a-time-in-the-west-1-mid
-//https://bitmidi.com/once-upon-a-time-in-the-west-2-mid
-//http://www.acroche2.com/midi_m.html
-//https://www.midis101.com/search/ENNIO+MORRICONE
-//REVOLVER UI (original, modified for the game):
-//https://opengameart.org/content/revolver-ammo-icon
 
 //These five components can be added: physics systems, cameras, particle effects, text objects, the animation manager
 //Requirement for the game: Physics for hit detection, camera of dynamic scene switch, particle effects for blasting, text objects (self-expalantory), and animation manager (just adding animations to the game.)
 
+//CITATIONS:
+//For bit-crushing movie stills - https://giventofly.github.io/pixelit/
+//Used the color palette "SEPIA 6" - https://lospec.com/palette-list/sepia6
+//Crunched the sound using - https://meme.institute/gxscc/
+//Original Midis From:
+//http://www.acroche2.com/midi_m.html
+//https://www.midis101.com/search/ENNIO+MORRICONE
+//REVOLVER UI (original, modified for the game): https://opengameart.org/content/revolver-ammo-icon
 //Sound Effects: https://sfxr.me/
-
-//Overlap Rect reference:
-//Reference: https://newdocs.phaser.io/docs/3.55.2/focus/Phaser.Physics.Arcade.Components.OverlapRect
-//Example: https://labs.phaser.io/view.html?src=src/physics/arcade/get%20bodies%20within%20rectangle.js
-
-//Adding new fonts to Phaser: https://webtips.dev/webtips/phaser/custom-fonts-in-phaser3
-
 //Custom font Smokum from: https://fonts.google.com/specimen/Smokum
+
 
 let config = {
     type: Phaser.AUTO, //Phaser.CANVAS => webgl isn't pixel perfect when rendering for some reason
     width: 640,
     height: 480,
-    scene: [menu, scene1, scene2, scene3, gameover],
+    scene: [menu, scene1, scene2, scene3, gameover, credits],
     // backgroundColor: '#000000',
     // canvas: myCustomCanvas,
     // context: myCustomContext,

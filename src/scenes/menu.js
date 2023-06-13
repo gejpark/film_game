@@ -127,7 +127,7 @@ class menu extends Phaser.Scene {
 
         //Add Credits
         this.credits = new Button(this, 64 * 4, game.config.height - 32, "CREDITS", menuConfig);
-        // this.credits.addSceneTransition('');
+        this.credits.addSceneTransition('credits');
 
         //Add TUTORIAL
         // this.tutorial = new Button(this, 64 * 6, game.config.height - 32, "TUTORIAL", menuConfig);
@@ -153,7 +153,7 @@ class menu extends Phaser.Scene {
 
     }
     update() {
-        if (this.playButton.interacted) {
+        if (this.playButton.interacted) { //set interactions with scene buttons when "PLAY" is pressed
             this.scene1.enableButton(true);
             this.scene2.enableButton(true);
             this.scene3.enableButton(true);
@@ -163,8 +163,8 @@ class menu extends Phaser.Scene {
             this.scene3.enableButton(false);
         }
 
-        this.UI.update();
+        this.UI.update(); //update UI
 
-        this.scene1.update();
+        // this.scene1.update();
     }
 }
