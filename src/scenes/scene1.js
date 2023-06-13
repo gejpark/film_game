@@ -63,7 +63,7 @@ class scene1 extends Phaser.Scene {
         this.enemy1.create();
         this.enemy2 = new enemy1(this, game.config.width * (5/10), game.config.height * (2/3), 'enemy2_base');
         // this.enemy2.setAnimationType('enemy2');
-        this.enemy2.create('enemy2');
+        this.enemy2.create('enemy2'); //set the enemy type
         this.enemy3 = new enemy1(this, game.config.width * (1/10), game.config.height * (2/3), 'enemy3_base');
         // this.enemy3.setAnimationType('enemy3');
         this.enemy3.create('enemy3');
@@ -94,7 +94,7 @@ class scene1 extends Phaser.Scene {
     update() {
         this.UI.update(); //update the UI
 
-        if (this.scene_status == 1) {
+        if (this.scene_status == 1) { //play intro
             if(this.do_animation == false) {
                 this.scene1_start_background.anims.play('scene1_start_background', true);
                 this.do_animation = true;
@@ -112,7 +112,7 @@ class scene1 extends Phaser.Scene {
             })
         }
 
-        if (this.scene_status == 2) {
+        if (this.scene_status == 2) { //gameplay part
             this.time.delayedCall(1000, () => {
                 this.UI.safety = false;
                 this.ready.setVisible(false);
@@ -137,14 +137,14 @@ class scene1 extends Phaser.Scene {
                 this.scene.start('gameover');
             }
 
-            if(!this.enemy1.active && !this.enemy2.active && !this.enemy3.active) {
+            if(!this.enemy1.active && !this.enemy2.active && !this.enemy3.active) { //when all enemies are destroyed, play outro
                 // console.log("ALL DONE");
                 // game.sound.stopAll();
                 // this.time.delayedCall(100, () => {
                 //     this.scene.start('menu');
                 // })
                 this.scene1_background.anims.play('scene1_end_background', true);
-                this.scene1_background.on('animationcomplete', () => {
+                this.scene1_background.on('animationcomplete', () => { //on outro end, return to menu
                     // game.sound.stopAll();
                     this.scene.start('menu');
                 });

@@ -38,6 +38,7 @@ class credits extends Phaser.Scene {
             // },
             fixedWidth: 0
         }
+        //credits
         this.add.text(game.config.width/2, game.config.height/15 + 32, 'For bit-crushing movie stills - https://giventofly.github.io/pixelit/', creditConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/15 + 32 * 2, 'Used the color palette "SEPIA 6" - https://lospec.com/palette-list/sepia6', creditConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/15 + 32 * 3, 'Crunched the sound using GXSCC - https://meme.institute/gxscc/', creditConfig).setOrigin(0.5);

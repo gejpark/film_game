@@ -38,13 +38,7 @@ class scene3 extends Phaser.Scene {
         //set background color
         this.cameras.main.setBackgroundColor(0x000000); //set background color for main menu
 
-        // //add music
-        // if (this.playMusic == null) {
-        //     this.playMusic = this.sound.add('harmonica_theme');
-        //     this.playMusic.setVolume(0.5);
-        //     this.playMusic.setLoop(true);
-        // }
-        // this.playMusic.play(); //play the music
+        //play Harmonica's Theme
         this.sound.play('harmonica_theme');
 
         //scene status 1 = intro, 2 = gameplay
@@ -80,7 +74,7 @@ class scene3 extends Phaser.Scene {
 
 
 
-
+        //add base background for all animations to play on
         this.scene3_start_background = this.add.sprite(640/2,480/2,'scene3_base_image').setOrigin(0.5); 
         
         //ready to fire text

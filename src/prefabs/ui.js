@@ -41,16 +41,6 @@ class UI extends Phaser.Physics.Arcade.Sprite {
 
         //revolver sprite
         this.scene.revolver_ui = this.scene.add.sprite(32, game.config.height-32, 'revolver_ui_base_image');
-    
-        //add sound effects
-        // if (this.sfx_gunshot1 == null) {
-        //     this.sfx_gunshot1 = this.scene.sound.add('sfx_gunshot1');
-        // }
-        // this.sfx_gunshot2 = this.scene.sound.add('sfx_gunshot2');
-        // this.sfx_gunshot3 = this.scene.sound.add('sfx_gunshot3');
-        if (this.sfx_reload == null) {
-            this.sfx_reload = this.scene.sound.add('sfx_reload');
-        }
     }
 
     update() {
@@ -59,66 +49,57 @@ class UI extends Phaser.Physics.Arcade.Sprite {
         this.rect.y = this.y; 
         const { left, top, width, height } = this.rect.getBounds();
         const bodiesInRect = this.scene.physics.overlapRect(left, top, width, height); //detect overlapping bodies
-        // console.log(bodiesInRect);
 
-
-        if(this.rotation_lerp < 1.0) {
+        if(this.rotation_lerp < 1.0) { //rotation for the revolver cylinder movement
             this.scene.revolver_ui.angle = Phaser.Math.Linear(this.current_rotation, this.final_rotation, this.rotation_lerp);
-            this.rotation_lerp += 0.1;
+            this.rotation_lerp += 0.1; //move the cylinder
         }
-        this.scene.revolver_ui.setTexture(`revolver_ui${this.shot_count}`);
+        this.scene.revolver_ui.setTexture(`revolver_ui${this.shot_count}`); //change sprite based on ammo count
         
         if (MOUSE_POINTER.leftButtonDown() && this.can_fire == true) {   //left key down
-            this.setScale(0.5);
-            if (this.shot_count > 1) {
-                bodiesInRect.forEach(element => {
-                    // console.log(element.gameObject.constructor.name);
-                    if (element.gameObject.constructor.name == "Button") {
+            this.setScale(0.5); //when holding down make icon smaller (for player feedback)
+            if (this.shot_count > 1) { //if there is ammo when shooting
+                bodiesInRect.forEach(element => { //detect elements in rect
+                    if (element.gameObject.constructor.name == "Button") { //if it is a button
                         if (element.gameObject.nextScene) {
-                            element.gameObject.moveToNextScene();
+                            element.gameObject.moveToNextScene(); //move to next scene
                         } else {
-                            element.gameObject.interaction();
+                            element.gameObject.interaction(); //else check for possible interaction
                         }
                     }
-                    if (this.safety == false && element.gameObject.constructor.name == "enemy1") {
+                    if (this.safety == false && element.gameObject.constructor.name == "enemy1") { //if object in rect is an enemy and gun safety is off, then destroy that enemy
                         element.gameObject.destroy();
                     }
                 });
-                this.shot_count -= 1;
-                // this.scene.sound.play('sfx_gunshot1');
-                // this.sfx_gunshot1.setVolume(this.shot_count/2);
-                // this.sfx_gunshot1.stop();
+                this.shot_count -= 1; //decrement ammo count
                 
-                // this.sfx_gunshot1.play();
-                this.scene.sound.play('sfx_gunshot1', {volume: this.shot_count/2});
-                this.final_rotation += 60;
-                this.rotation_lerp = 0;
+                this.scene.sound.play('sfx_gunshot1', {volume: this.shot_count/2}); //play gunshot sound and adjust volume based on amount of ammo
+                this.final_rotation += 60; //rotate cylinder 60 degrees every shot
+                this.rotation_lerp = 0; //reset lerp
             }
-            this.can_fire = false;
+            this.can_fire = false; //can't fire until mouse button is lifted up
         } 
         
-        if (!MOUSE_POINTER.leftButtonDown()) {                                //left key up
-            this.setScale(1.0);
-            this.can_fire = true;
+        if (!MOUSE_POINTER.leftButtonDown()) {  //left key up
+            this.setScale(1.0); //reset scale
+            this.can_fire = true; //now can fire gun again
         }
 
-        if (MOUSE_POINTER.rightButtonDown() && this.can_reload == true) {
+        if (MOUSE_POINTER.rightButtonDown() && this.can_reload == true) { //right click to reload
             if (this.shot_count < 7) {
-                this.shot_count += 1;
-                // this.sfx_reload.setVolume((7-this.shot_count));
-                // this.sfx_reload.play();
-                this.scene.sound.play('sfx_reload');
-                this.final_rotation -= 60;
-                this.rotation_lerp = 0;
+                this.shot_count += 1; //reload ammo
+                this.scene.sound.play('sfx_reload'); //play reloading sound
+                this.final_rotation -= 60; //move back 60 degrees
+                this.rotation_lerp = 0; //reset lerp
             }
-            this.can_reload = false;
+            this.can_reload = false; //only reload when let go (similar to shooting)
         } 
         
         if (!MOUSE_POINTER.rightButtonDown()) {
             this.can_reload = true;
         }
 
-        if (Phaser.Input.Keyboard.JustDown(KEY_P)) { //turn cursor on or off (visually)
+        if (Phaser.Input.Keyboard.JustDown(KEY_P)) { //turn cursor on or off (visually) -> this didn't really work out like I wanted to, it's a vestigal feature.
             if(this.showCursor == true) {
                 this.showCursor = false;
             } else {
@@ -130,14 +111,13 @@ class UI extends Phaser.Physics.Arcade.Sprite {
         } else {
             document.body.style.cursor = 'none';
         }
-        // // console.log(this.showCursor);
 
-        this.x = MOUSE_POINTER.x;
-        this.y = MOUSE_POINTER.y;
+        this.x = MOUSE_POINTER.x; //set mouse cursor x and y coordinates.
+        this.y = MOUSE_POINTER.y; 
     }
 
     onOverlap(other) {
-        if (other.active) {
+        if (other.active) { //detect overlap (unnecessary leftover?)
             other.destroy();
         }
     }
