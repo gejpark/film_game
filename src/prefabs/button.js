@@ -21,7 +21,7 @@ class Button extends Phaser.GameObjects.Text {
             this.scene.playMusic.stop();
         }
         if (this.active == true) {
-            // game.sound.stopAll();
+            game.sound.stopAll(); //stop all sound before new scene load
             this.scene.scene.start(this.scene_name);
         }
     }
