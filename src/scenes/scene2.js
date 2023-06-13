@@ -6,6 +6,10 @@ class scene2 extends Phaser.Scene {
         this.load.image('scene1_background', './assets/scene1_images/gameplay/scene1_background.png');
     }
     create() {
+
+        //set background color
+        this.cameras.main.setBackgroundColor(0xbababa); //set background color for main menu
+        
         //add background:
         // this.scene2_background = this.add.sprite(0, 0, 'scene1_background').setOrigin(0);
 
